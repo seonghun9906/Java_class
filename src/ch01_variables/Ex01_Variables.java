@@ -17,6 +17,12 @@ public class Ex01_Variables {
 				" / "+ address +" / "+ mobile);
 	
 		System.out.println("저의 이름은 : " + name + " 입니다.");
+		
+		int num = 5;
+		++num;
+		int result = 10 + ++num; 
+		System.out.println(result);
+	
 	}
 
 }
