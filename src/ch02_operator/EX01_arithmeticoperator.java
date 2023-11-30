@@ -44,7 +44,7 @@ public class EX01_arithmeticoperator {
 		int remainResult = num1 % num2;
 		System.out.println(remainResult);
 
-
+		
 	}
 
 }

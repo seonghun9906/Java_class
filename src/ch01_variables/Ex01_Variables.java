@@ -23,6 +23,7 @@ public class Ex01_Variables {
 		int result = 10 + ++num; 
 		System.out.println(result);
 	
-	}
+		int num1 =0;
+		System.out.println(num1);	}
 
 }
