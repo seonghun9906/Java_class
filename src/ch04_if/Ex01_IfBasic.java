@@ -41,5 +41,7 @@ public class Ex01_IfBasic {
 				System.out.println("비교 불가");
 			}
 	}
+	
+	
 }
 
