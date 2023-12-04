@@ -31,10 +31,10 @@ public class Ex04_IfExample {
 				pack = "D";
 			} else {
 				pack = "F";		
-			}System.out.println(pack);
+			}
 		} else {
 			System.out.println("입력범위를 초과하였습니다.");
-		}
+		}System.out.println(pack);
 		
 	}
 			

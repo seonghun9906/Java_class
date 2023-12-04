@@ -15,6 +15,8 @@ public class ch02_operator {
 		result = bool1;
 		System.out.println(result);
 		System.out.println(bool1);
+	
+	
 	}
 
 }
