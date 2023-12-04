@@ -29,6 +29,7 @@ public class Ex02_SwitchCaseExample {
                 break;
             default:
                 System.out.println("사전에 없는 단어 입니다.");
+                break;
         }
 
     }
