@@ -23,16 +23,14 @@ public class Ex07_ForEx {
         int num1 = scanner.nextInt();
 
 
-
         for (int i = num1; i == num1; i++) {
             System.out.println(i + "단");
             for (int j = 1; j < 10; j++) {
-                System.out.println(i + "*" + j + "=" + (j*i));
+                System.out.println(i + "*" + j + "=" + (j * i));
 
             }
 
         }
-
 
 
     }

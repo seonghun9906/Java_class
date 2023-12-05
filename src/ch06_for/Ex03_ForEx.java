@@ -6,11 +6,12 @@ public class Ex03_ForEx {
 
         int sum = 0;
 
-        for(int i = 1; i<=10; i++){
-            sum= sum+i;
+        for (int i = 1; i <= 10; i++) {
+            sum = sum + i;
 
             System.out.println("i = " + i);
             System.out.println("sum = " + sum);
-        }System.out.println("for문 종료 후 " +sum);
+        }
+        System.out.println("for문 종료 후 " + sum);
     }
 }

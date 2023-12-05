@@ -17,7 +17,8 @@ public class Ex04_ForEx {
             } else {
                 System.out.print(i + "=");
             }
-        }System.out.print(sum);
+        }
+        System.out.print(sum);
     }
 
 

@@ -19,11 +19,11 @@ public class Ex05_ForEx {
         int num2 = scanner.nextInt();
         int sum = 0;
 
-        for(int i = num1; i<=num2; i++){
-            sum = sum+i;
-            if(i<num2){
-                System.out.print(i+"+");
-            }else{
+        for (int i = num1; i <= num2; i++) {
+            sum = sum + i;
+            if (i < num2) {
+                System.out.print(i + "+");
+            } else {
                 System.out.print(i + "=");
             }
         }

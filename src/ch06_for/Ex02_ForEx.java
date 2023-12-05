@@ -9,19 +9,18 @@ public class Ex02_ForEx {
         //5 4 3 2 1 출력
 
         int i = 0;
-        for(i = 1; i<=10; i++) {
+        for (i = 1; i <= 10; i++) {
             System.out.println(i);
         }
         int j = 0;
-        for(j = 2; j<=10; j+=2){
+        for (j = 2; j <= 10; j += 2) {
             System.out.println(j);
         }
 
         int a = 0;
-        for(a =5; a > 0; a--){
+        for (a = 5; a > 0; a--) {
             System.out.println(a);
         }
-
 
 
     }

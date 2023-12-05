@@ -15,7 +15,7 @@ public class Ex02_SwitchCaseExample {
 
 
         switch (a) {
-            case "desk" :
+            case "desk":
                 System.out.println("책상입니다.");
                 break;
             case "chair":
