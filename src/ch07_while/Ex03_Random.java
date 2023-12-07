@@ -21,7 +21,7 @@ public class Ex03_Random {
         int int1 = 10;
         double double1 = 1.2345678;
         
-        // 정수형 변수를 실수형 변수에 대입
+        // 정수형 변수를 실수형 변수에 대입g
         double double2 = int1;
         System.out.println("double2 = " + double2);
 
