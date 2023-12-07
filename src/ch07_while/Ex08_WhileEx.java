@@ -29,7 +29,12 @@ public class Ex08_WhileEx {
                         System.out.print("출금액 >");
                         money = sc.nextInt();
                         money1 -= money;
+                        if(money1 < 0) {
+                            System.out.println("잔고가 부족합니다.");
+                            run = false;
+                        }else{
                         System.out.println("현재잔액은" + money1 + "입니다.");
+                        }
                     } else if (num == 3) {
                         System.out.println("현재잔액은" + money1 + "입니다.");
                     } else {
