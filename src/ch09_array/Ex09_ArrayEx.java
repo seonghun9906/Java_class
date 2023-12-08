@@ -24,6 +24,8 @@ public class Ex09_ArrayEx {
             System.out.print("선택 > ");
                 String num = sc.next();
 
+
+
                 if (num.equals("1") || num.equals("학생수입력")) {
                     System.out.print("학생수 > ");
                     int student = sc.nextInt();
