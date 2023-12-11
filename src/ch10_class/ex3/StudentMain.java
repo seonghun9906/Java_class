@@ -1,5 +1,7 @@
 package ch10_class.ex3;
 
+import java.util.Scanner;
+
 public class StudentMain {
     public static void main(String[] args) {
         //기본생성자로 객체 선언
@@ -10,8 +12,10 @@ public class StudentMain {
 
         Student student3 = new Student(5);
 
-        Student student4 = new Student("이름", "학과");
+        Student student4 = new Student("", "");
 
         Student student5 = new Student("이름1", "전공", "모바일번호");
+
+        Scanner sc = new Scanner(System.in);
     }
 }
