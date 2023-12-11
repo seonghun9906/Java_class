@@ -13,7 +13,7 @@ public class Ex02_ForEx {
             System.out.println(i);
         }
         int j = 0;
-        for (j = 2; j <= 10; j += 2) {
+        for (j = 2; j <= 10; j += 2) {// j =+ 2 == j = j+2 {
             System.out.println(j);
         }
 
@@ -22,6 +22,5 @@ public class Ex02_ForEx {
             System.out.println(a);
         }
 
-
     }
-}
+    }

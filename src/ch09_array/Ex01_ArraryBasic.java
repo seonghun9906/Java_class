@@ -9,7 +9,7 @@ public class Ex01_ArraryBasic {
         System.out.println( );
         // 크기가 3인 String 배열 strings1
         String[] String1 = new String[3];
-        System.out.println("String[0] = " + String1[0]);;
+        System.out.println("String[0] = " + String1[0]);
         // 크기가 10인 실수형 배열 doubles1
         double[] doubles1 = new double[10];
         System.out.println("doubles[0] = " + doubles1[0]);
@@ -17,7 +17,7 @@ public class Ex01_ArraryBasic {
         // 정수형배열 numbers2 이름만 선언하고 다음 줄에 크기 8을 지정하여 배열 선언
         int[] numbers2 = null;
         numbers2 = new int[8];
-        System.out.println("numbers2[0] " + numbers2[0]);;
+        System.out.println("numbers2[0] " + numbers2[0]);
         // 10, 20, 30, 40이 들어있는 numbers3 배열 선언
         int[] numbers3 = {10, 20, 30, 40};
         
