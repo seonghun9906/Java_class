@@ -16,6 +16,5 @@ public class StudentMain {
 
         Student student5 = new Student("이름1", "전공", "모바일번호");
 
-        Scanner sc = new Scanner(System.in);
     }
 }
