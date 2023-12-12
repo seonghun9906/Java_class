@@ -16,13 +16,5 @@ public class StudentMain {
 
         student.print();
         student1.print();
-
-
-
-
-
     }
-
-
-
 }

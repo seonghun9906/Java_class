@@ -65,5 +65,4 @@ public class Student {
             System.out.println(getStudentMajor());
             System.out.println(getStudentMobile());
         }
-
 }
