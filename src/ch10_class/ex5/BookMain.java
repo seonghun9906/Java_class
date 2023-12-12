@@ -1,6 +1,4 @@
-package ex5;
-
-import java.util.Arrays;
+package ch10_class.ex5;
 
 public class BookMain {
     public static void main(String[] args) {

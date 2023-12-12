@@ -1,4 +1,4 @@
-package ex5;
+package ch10_class.ex5;
 
 public class Book {
     /*
