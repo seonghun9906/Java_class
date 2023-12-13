@@ -16,5 +16,9 @@ public class StudentMain {
 
         student.print();
         student1.print();
+
+        System.out.println("student1 = " + student);
+        System.out.println("student2 = " + student1);
     }
+
 }
