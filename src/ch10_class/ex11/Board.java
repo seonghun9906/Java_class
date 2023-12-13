@@ -86,7 +86,7 @@ public class Board {
              boardHits++;
                 System.out.println("조회수 = " + boardHits);
         }else{
-            System.out.println("저장했던 글 번호 일치 하지 않음.");
+            System.out.println("저장했던 글 번호 일치 하지 않음.");;;;;
         }
 
     }
