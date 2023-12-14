@@ -17,7 +17,7 @@ public class Member {
     Scanner sc = new Scanner(System.in);
 
     private String MemberEmail;
-    private String MemberPassword;
+    private String MemberPassword; // Pw 입력된값 저장
     private String MemberName;
     private String MemberMobile;
     private String MemberLogin;
