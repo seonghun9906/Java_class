@@ -1,4 +1,4 @@
-package ch11classes.ex01;
+package ch11_classes.ex01;
 
 public class StudentService {
 }
