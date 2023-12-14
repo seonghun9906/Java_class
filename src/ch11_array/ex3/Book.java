@@ -62,11 +62,15 @@ public class Book {
     public void setBookPublisher(String bookPublisher) {
         this.bookPublisher = bookPublisher;
     }
+
+    private static Long idValue = 1L;
+
     public Book(){
+        this.id = idValue++;
 
     }
-    public Book(Long id, String bookTitle, String bookAuthor, String bookPrice, String bookPublisher) {
-        this.id = id;
+    public Book(String bookTitle, String bookAuthor, String bookPrice, String bookPublisher) {
+        this.id = idValue++;
         this.bookTitle = bookTitle;
         this.bookAuthor = bookAuthor;
         this.bookPrice = bookPrice;
