@@ -62,9 +62,9 @@ public class Book {
     public void setBookPublisher(String bookPublisher) {
         this.bookPublisher = bookPublisher;
     }
-
+    //id를 1씩 증가하게 만듦(이것을 쓰게 되면 따로 id 데이터를 집어넣지 않아도됨);
     private static Long idValue = 1L;
-
+    //기본생성자에 id를 1씩 증가하게 만듦.
     public Book(){
         this.id = idValue++;
 
