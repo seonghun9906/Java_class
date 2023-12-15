@@ -11,14 +11,13 @@ public class StudentMain {
         StudentService studentService = new StudentService();
 
 
-
         while (run) {
             System.out.println("----------------------------------------------------");
             System.out.println("1.method1 호출 | 2.method 호출 | 3.method3 호출 | 4.종료");
             System.out.println("----------------------------------------------------");
             System.out.print("선택 > ");
             num = sc.nextInt();
-            if(num == 1){
+            if (num == 1) {
                 System.out.println("메서드 호출 전");
                 studentService.method1();
                 System.out.println("메서드 호출 후");
@@ -27,10 +26,10 @@ public class StudentMain {
             } else if (num == 2) {
                 studentService.method2();
 
-            }else if (num == 3){
+            } else if (num == 3) {
                 studentService.method3();
 
-            }else if (num == 4){
+            } else if (num == 4) {
                 run = false;
             }
         }

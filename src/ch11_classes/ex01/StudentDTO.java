@@ -48,9 +48,10 @@ public class StudentDTO {
         StudentMobile = studentMobile;
     }
 
-    public StudentDTO(){
+    public StudentDTO() {
 
     }
+
     private static Long idValue = 1L;
 
     public StudentDTO(String studentName, String studentNumber, String studentMajor, String studentMobile) {
