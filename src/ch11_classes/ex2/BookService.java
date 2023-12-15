@@ -123,4 +123,15 @@ public class BookService {
             System.out.println("요청하신 정보 없음.");
         }
     }
+
+    public void delete() {
+        System.out.print("삭제할 Id : ");
+        Long id = sc.nextLong();
+      boolean result = bookRepository.delete(id);
+      if(result){
+          System.out.println("삭제 성공");
+      }else{
+          System.out.println("삭제 실패");
+      }
+    }
 }

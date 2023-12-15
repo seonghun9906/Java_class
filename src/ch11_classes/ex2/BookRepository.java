@@ -68,28 +68,29 @@ public class BookRepository {
                 bookDTOlist.add(bookDTOList.get(i));
             }
         }
-        return bookDTOlist ;
+        return bookDTOlist;
     }
 
     public List<BookDTO> search(String bookTitle) {
         // 검색결과를 담을 List 선언
         List<BookDTO> bookDTOS = new ArrayList<>();
         // 저장되어 있는 도서명에 검색어가 포함되어 있으면 true
-        for (int i = 0; i < bookDTOList.size() ; i++) {
-            if(bookDTOList.get(i).getBookTitle().contains(bookTitle)){
+        for (int i = 0; i < bookDTOList.size(); i++) {
+            if (bookDTOList.get(i).getBookTitle().contains(bookTitle)) {
                 // 조건을 만족하면 bookDTOS에 추가
                 //bookDTOS.add(bookDTOList.get(i));
                 BookDTO bookDTO = bookDTOList.get(i);
                 bookDTOS.add(bookDTO);
             }
 
-    }return bookDTOS;
         }
+        return bookDTOS;
+    }
 
     public boolean update(Long id, String bookPrice) {
         boolean result = false;
         for (int i = 0; i < bookDTOList.size(); i++) {
-            if(id.equals(bookDTOList.get(i).getId())){
+            if (id.equals(bookDTOList.get(i).getId())) {
                 bookDTOList.get(i).setBookPrice(bookPrice);
                 result = true;
             }
@@ -97,6 +98,18 @@ public class BookRepository {
         }
         return result;
     }
+
+    public boolean delete(Long id) {
+        boolean result = false;
+        for (int i = 0; i < bookDTOList.size(); i++) {
+            if (id.equals(bookDTOList.get(i).getId())) {
+                bookDTOList.remove(i);
+                result = true;
+            }
+        }
+        return result;
+    }
 }
+
 
 
