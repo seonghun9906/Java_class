@@ -40,7 +40,6 @@ public class StudentService {
         }
         System.out.println("StudentService.method3");
     }
-
     /**
      * repository로 부터 List를 리턴 받아 for문으로 출력
      */
@@ -50,7 +49,6 @@ public class StudentService {
           System.out.println("studentDTO = " + studentDTO);
       }
     }
-
     /**
      * 조회할 id를 입력받고
      * id를 repository로 전달하고
