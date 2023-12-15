@@ -80,13 +80,47 @@ public class BookService {
      *      도서제목을 입력받고 Repository로 부터 해당 하는 도서 정보를 출력(제목이 정확히 일치하는 것만)
      *      없으면 없다고 출력
      */
-    public void findByTitle (){
+    public void findByTitle () {
         String title = sc.next();
-       List<BookDTO> bookDTO = bookRepository.findByTitle(title);
-        if(bookDTO != null){
+        List<BookDTO> bookDTO = bookRepository.findByTitle(title);
+        if (bookDTO != null) {
             System.out.println(bookDTO);
-        }else{
+        } else {
             System.out.println("요청하신 도서 번호는 도서 정보가 입력되어 있지 않습니다.");
+        }
+    }
+    public void search() {
+        System.out.println("검색어 : ");
+        String bookTitle = sc.next();
+        List<BookDTO> bookDTOList = bookRepository.search(bookTitle);
+        if(bookDTOList.size()>0){
+            for(BookDTO bookDTO : bookDTOList){
+                System.out.println(bookDTO);
+            }
+
+        } else{
+            System.out.println("검색 결과가 없습니다!");
+            }
+    }
+
+    public void update() {
+        // 수정할 id를 입력받음
+        // 해당 id 도서가 있다면 수정할 가격을 입력받고 수정 처리
+        // 없으면 없다고 출력
+        System.out.print("수정할 Id : ");
+        Long id = sc.nextLong();
+        BookDTO bookDTO = bookRepository.findById(id);
+        if (bookDTO != null){
+            System.out.print("수정할 가격 : ");
+            String bookPrice = sc.next();
+            boolean updateResult = bookRepository.update(id, bookPrice);
+            if(updateResult){
+                System.out.println("수정 성공");
+            }else {
+                System.out.println("수정 실패");
+            }
+        }else {
+            System.out.println("요청하신 정보 없음.");
         }
     }
 }

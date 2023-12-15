@@ -1,9 +1,6 @@
 package ch11_classes.ex2;
 
 
-
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -72,6 +69,33 @@ public class BookRepository {
             }
         }
         return bookDTOlist ;
+    }
+
+    public List<BookDTO> search(String bookTitle) {
+        // 검색결과를 담을 List 선언
+        List<BookDTO> bookDTOS = new ArrayList<>();
+        // 저장되어 있는 도서명에 검색어가 포함되어 있으면 true
+        for (int i = 0; i < bookDTOList.size() ; i++) {
+            if(bookDTOList.get(i).getBookTitle().contains(bookTitle)){
+                // 조건을 만족하면 bookDTOS에 추가
+                //bookDTOS.add(bookDTOList.get(i));
+                BookDTO bookDTO = bookDTOList.get(i);
+                bookDTOS.add(bookDTO);
+            }
+
+    }return bookDTOS;
+        }
+
+    public boolean update(Long id, String bookPrice) {
+        boolean result = false;
+        for (int i = 0; i < bookDTOList.size(); i++) {
+            if(id.equals(bookDTOList.get(i).getId())){
+                bookDTOList.get(i).setBookPrice(bookPrice);
+                result = true;
+            }
+
+        }
+        return result;
     }
 }
 
