@@ -6,6 +6,15 @@ public class MemberDTO {
     private String memberPassword;
     private String memberName;
     private String memberMobile;
+    private String memberLock = "123456789";
+
+    public String getMemberLock() {
+        return memberLock;
+    }
+
+    public void setMemberLock() {
+        this.memberLock = "123456789";
+    }
 
     public Long getId() {
         return id;
@@ -60,6 +69,10 @@ public class MemberDTO {
         this.memberPassword = memberPassword;
         this.memberName = memberName;
         this.memberMobile = memberMobile;
+    }
+
+    public MemberDTO(String memberLock) {
+        this.memberLock = memberLock;
     }
 
     @Override

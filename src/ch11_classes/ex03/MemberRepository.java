@@ -65,6 +65,7 @@ public class MemberRepository {
         for (int i = 0; i < memberDTOList.size(); i++) {
             if (memberEmail.equals(memberDTOList.get(i).getMemberEmail())) {
                 result = true;
+                //중복되는 이메일이 있다 => 결과를 true로 줌
             }
         }
         return result;
@@ -78,7 +79,10 @@ public class MemberRepository {
 
         }
     }
-}
+
+
+    }
+
 
 
 

@@ -1,6 +1,5 @@
 package ch11_classes.ex03;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,46 +14,51 @@ public class MemberService {
         String memberEmail = sc.next();
         boolean result = memberRepository.emailCheck(memberEmail);
         if (result) {
+            //reuslt는 true 이므로 이것이 실행되고 Repository에서 false 나오면 사용가능한 eamil이라고 하고 비밀번호 입력으로 넘어감
             System.out.println("중복된 이메일입니다.");
-            System.out.println("이메일이 중복되어 새로운 이메일을 입력해주세요.");
+            System.out.println("이메일이 중복되어 다른 이메일을 입력해주세요.");
             save();
         } else {
             System.out.println("사용 가능한 email 입니다.");
-        }
-        System.out.print("비밀번호 입력 > ");
-        String memberPassword = sc.next();
-        System.out.print("회원 이름 입력 > ");
-        String memberName = sc.next();
-        System.out.print("회원 전화번호 입력 > ");
-        String memberMobile = sc.next();
+            System.out.print("비밀번호 입력 > ");
+            String memberPassword = sc.next();
+            System.out.print("회원 이름 입력 > ");
+            String memberName = sc.next();
+            System.out.print("회원 전화번호 입력 > ");
+            String memberMobile = sc.next();
 
 
-        MemberDTO memberDTO = new MemberDTO(memberEmail, memberPassword, memberName, memberMobile);
-        boolean save = memberRepository.save(memberDTO);
-        if (save) {
-            System.out.println(memberDTO);
-            System.out.println("회원가입 성공");
-        } else {
-            System.out.println("회원가입 실패");
+            MemberDTO memberDTO = new MemberDTO(memberEmail, memberPassword, memberName, memberMobile);
+            boolean save = memberRepository.save(memberDTO);
+            if (save) {
+                System.out.println(memberDTO);
+                System.out.println("회원가입 성공");
+            } else {
+                System.out.println("회원가입 실패");
+            }
         }
+
     }
 
 
     public void login() {
-        System.out.println("로그인 할 Email와 PW를 입력하세요");
-        System.out.print("ID > ");
-        String email = sc.next();
-        System.out.print("PW > ");
-        String Pw = sc.next();
+        if(loginEmail == null) {
+            System.out.println("로그인 할 Email와 PW를 입력하세요");
+            System.out.print("ID > ");
+            String email = sc.next();
+            System.out.print("PW > ");
+            String Pw = sc.next();
 
-        MemberDTO memberDTO = memberRepository.Login(email, Pw);
-        if (memberDTO != null) {
-            System.out.println("로그인 성공");
-            loginEmail = email;
-        } else {
-            System.out.println("로그인 실패");
+            MemberDTO memberDTO = memberRepository.Login(email, Pw);
+            if (memberDTO != null) {
+                System.out.println("환영합니다. " + memberDTO.getMemberName() + " 님 로그인 되었습니다.");
+                loginEmail = email;
+            } else {
+                System.out.println("로그인 실패");
+            }
+        }else {
+            System.out.println("로그인이 되어있는 상태입니다 로그아웃을 하신 후 재 로그인 해주시길 바랍니다.");
         }
-
     }
 
     public void memberFind() {
@@ -119,19 +123,20 @@ public class MemberService {
         if (loginEmail != null) {
             loginEmail = null;
             System.out.println("로그아웃 되었습니다.");
+        }else {
+            System.out.println("로그인 해주시길 바랍니다.");
         }
     }
 
+
     public void memInfo() {
         if (loginEmail != null) {
-//            System.out.println("회원 정보 수정을 위해 본인 email를 입력해주시길 바랍니다.");
-//            System.out.print("email > ");
             memberRepository.memInfo(loginEmail);
-
         } else {
             System.out.println("로그인 해주시길 바랍니다.");
         }
     }
+
 }
 
 
