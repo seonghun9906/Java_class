@@ -7,7 +7,6 @@ import java.util.Scanner;
 public class MemberService {
     private static String loginEmail = null;
     MemberRepository memberRepository = new MemberRepository();
-    public static List<MemberDTO> memberDTOList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     public void save() {
@@ -16,7 +15,8 @@ public class MemberService {
         String memberEmail = sc.next();
         boolean result = memberRepository.emailCheck(memberEmail);
         if (result) {
-            System.out.println("이메일이 중복되어서 다시 입력하세요.");
+            System.out.println("중복된 이메일입니다.");
+            System.out.println("이메일이 중복되어 새로운 이메일을 입력해주세요.");
             save();
         } else {
             System.out.println("사용 가능한 email 입니다.");
@@ -110,18 +110,29 @@ public class MemberService {
             } else {
                 System.out.println("로그인된 회원정보랑 다릅니다.");
             }
-        }else{
+        } else {
             System.out.println("로그인 해주시길 바랍니다.");
         }
     }
 
-        public void logout () {
-            if (loginEmail != null) {
-                loginEmail = null;
-                System.out.println("로그아웃 되었습니다.");
-            }
+    public void logout() {
+        if (loginEmail != null) {
+            loginEmail = null;
+            System.out.println("로그아웃 되었습니다.");
         }
     }
+
+    public void memInfo() {
+        if (loginEmail != null) {
+//            System.out.println("회원 정보 수정을 위해 본인 email를 입력해주시길 바랍니다.");
+//            System.out.print("email > ");
+            memberRepository.memInfo(loginEmail);
+
+        } else {
+            System.out.println("로그인 해주시길 바랍니다.");
+        }
+    }
+}
 
 
 
