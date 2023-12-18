@@ -1,6 +1,8 @@
 package ch11_classes.ex2;
 
 public class BookDTO {
+    //DTO는 데이터를 전달하는 느낌
+
     /**
      도서 클래스
 
@@ -65,11 +67,12 @@ public class BookDTO {
     }
 
     private  static Long idValue = 1L;
+    //static 값을 유지할 수 있도록 도와주는것.
     public BookDTO(){
-        this.id = idValue++;
 
     }
     public BookDTO(String bookTitle, String bookauthor, String bookPrice, String bookpublisher) {
+        this.id = idValue++;
         this.bookTitle = bookTitle;
         this.bookauthor = bookauthor;
         this.bookPrice = bookPrice;

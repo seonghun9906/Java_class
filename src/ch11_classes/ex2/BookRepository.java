@@ -17,8 +17,7 @@ public class BookRepository {
      * Service로 부터 전달 받은 DTO 객체를 리스트에 저장하고 결과를 리턴
      */
     public boolean save(BookDTO bookDTO) {
-        boolean save = bookDTOList.add(bookDTO);
-        return save;
+        return bookDTOList.add(bookDTO);
     }
 
     /**
@@ -32,6 +31,7 @@ public class BookRepository {
     public List<BookDTO> findAll() {
         return bookDTOList;
     }
+    // return 이 있으면 무조건 좌변이 필요함.
 
     /**
      * 도서조회 메서드
@@ -78,9 +78,9 @@ public class BookRepository {
         for (int i = 0; i < bookDTOList.size(); i++) {
             if (bookDTOList.get(i).getBookTitle().contains(bookTitle)) {
                 // 조건을 만족하면 bookDTOS에 추가
-                //bookDTOS.add(bookDTOList.get(i));
-                BookDTO bookDTO = bookDTOList.get(i);
-                bookDTOS.add(bookDTO);
+                bookDTOS.add(bookDTOList.get(i));
+//                BookDTO bookDTO = bookDTOList.get(i);
+//                bookDTOS.add(bookDTO);
             }
 
         }

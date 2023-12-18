@@ -1,5 +1,7 @@
 package ch11_classes.ex2;
 
+import ch11_array.ex3.Book;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -20,14 +22,15 @@ public class BookService {
     public void save(){
         System.out.println("등록할 도서 정보를 입력해주세요.");
         System.out.print("도서명 입력 : ");
-        BookDTO bookDTO = new BookDTO();
-        bookDTO.setBookTitle(sc.next());
+        String booktitle = sc.next();
         System.out.print("저자 : ");
-        bookDTO.setBookauthor(sc.next());
+        String bookauthor = sc.next();
         System.out.print("가격 : ");
-        bookDTO.setBookPrice(sc.next());
+        String bookprice = sc.next();
         System.out.print("출판사 정보 : ");
-        bookDTO.setBookpublisher(sc.next());
+        String bookpublisher = sc.next();
+
+        BookDTO bookDTO = new BookDTO(booktitle,bookauthor,bookprice,bookpublisher);
         boolean save = bookRepository.save(bookDTO);
         if(save){
             System.out.println(bookDTO);
@@ -99,6 +102,7 @@ public class BookService {
             }
 
         } else{
+            //bookDTOList.size() == 0;
             System.out.println("검색 결과가 없습니다!");
             }
     }
