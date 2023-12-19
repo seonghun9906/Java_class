@@ -27,7 +27,5 @@ public class Ex_Date {
         careatedAt = now.format(DateTimeFormatter.ofPattern("yyyy년MM월dd일 HH시mm분ss초"));
         System.out.println("careatedAt = " + careatedAt);
 
-
-
     }
 }

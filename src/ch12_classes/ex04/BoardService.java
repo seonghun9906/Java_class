@@ -7,7 +7,6 @@ public class BoardService {
     Scanner sc = new Scanner(System.in);
     BoardRepository boardRepository = new BoardRepository();
 
-
     public void Writing() {
         System.out.print("제목 > ");
         String bordTitle = sc.next();
@@ -26,9 +25,7 @@ public class BoardService {
         } else {
             System.out.println("글 작성중 오류가 발생하였습니다.");
         }
-
     }
-
 
     public void list() {
         List<BoardDTO> boardDTOList = boardRepository.list();
@@ -40,7 +37,7 @@ public class BoardService {
         List<BoardDTO> boardDTOList = boardRepository.list();
         Long id = sc.nextLong();
 
-        boolean found = false; //// 해당 ID에 대한 게시글이 있는지 여부를 나타내는 플래그
+        boolean found = false; // 해당 ID에 대한 게시글이 있는지 여부를 나타내는 플래그
 
         for (BoardDTO boardDTO : boardDTOList) {
             if (id.equals(boardDTO.getId())) {
@@ -52,14 +49,13 @@ public class BoardService {
                     System.out.println("오류로 인해 조회수 증가에 실패하였습니다.");
                 }
                 found = true; // 해당 ID에 대한 게시글을 찾았음을 표시
-                break; // 해당 ID를 가진 게시글을 찾았으므로 루프 종료
+                break; // 해당 ID를 가진 게시글을 찾았으므로 루프 종료 / break를 안걸면 만약 리스트가 1000개있으면 1000개 다 돌아버려 Ram 을 많이 차지함. /break 를 걸면 맞는 조건이 나올시 반복이 되지 않으니 Ram을 덜 차지함.
             }
         }
         if (!found) {
             System.out.println("저장되어있지 않은 ID 입니다.");
         }
     }
-
 
     public void Edit() {
         System.out.println("글 수정을 위해 수정하는 글의 ID와 비밀번호를 입력해주세요.");
@@ -86,7 +82,6 @@ public class BoardService {
         }
     }
 
-
     public void Del() {
         System.out.println("글 삭제을 위해 삭제하는 글의 ID와 비밀번호를 입력해주세요.");
         System.out.print("ID 입력 > ");
@@ -108,7 +103,7 @@ public class BoardService {
         List<BoardDTO> boardDTOS = boardRepository.search(Title);
         if (boardDTOS.size() > 0) {
             for (BoardDTO boardDTO : boardDTOS) {
-             listPrint(boardDTOS);
+                listPrint(boardDTOS);
             }
         } else {
             System.out.println("검색결과가 없습니다.");
@@ -117,17 +112,21 @@ public class BoardService {
 
     // 목록 출력 전용 메서드
     // list, search 메서드로 부터 list 데이터를 전달 받아서 출력을 하는 메서드
-    private void listPrint(List<BoardDTO> boardDTOList){
+    private void listPrint(List<BoardDTO> boardDTOList) {
         for (BoardDTO boardDTO : boardDTOList) {
             System.out.println("id = " + boardDTO.getId() + '\'' +
                     " Title = " + boardDTO.getBoardTitle() + '\'' +
                     " Writer = " + boardDTO.getBoardWriter() + '\'' +
                     " Contents = " + boardDTO.getBoardContents() + '\'' +
                     " view = " + '\'' + boardDTO.getView() + '\'' +
-                    " date = "+ boardDTO.getCreatedAt());
+                    " date = " + boardDTO.getCreatedAt());
         }
     }
 
-
-
+    public void testData() {
+        for (int i = 1; i < 11; i++) {
+            BoardDTO boardDTO = new BoardDTO("title" + i, "Writer" + i, "1234" + i, "contents" + i);
+            boardRepository.Writing(boardDTO);
+        }
+    }
 }

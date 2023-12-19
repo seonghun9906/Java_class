@@ -11,7 +11,7 @@ public class BoardMain {
 
         while (run) {
             System.out.println("------------------------------------------------------------------");
-            System.out.println("1. 글 작성 | 2. 글 목록 | 3. 글 조회 | 4. 글 수정 | 5. 글삭제 | 6. 검색");
+            System.out.println("1. 글 작성 | 2. 글 목록 | 3. 글 조회 | 4. 글 수정 | 5. 글삭제 | 6. 검색 | 7.테스트 데이터");
             System.out.println("------------------------------------------------------------------");
             System.out.println("사용하고 싶은 메뉴의 번호를 입력해주세요");
             System.out.print("입력 > ");
@@ -30,6 +30,8 @@ public class BoardMain {
                 boardService.search();
             } else if (num == 0) {
                 run = false;
+            } else if (num == 7) {
+                boardService.testData();
             }
         }
     }
