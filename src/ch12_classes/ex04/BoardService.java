@@ -1,15 +1,12 @@
 package ch12_classes.ex04;
 
-import ch12_classes.ex02.BookDTO;
-
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class BoardService {
     Scanner sc = new Scanner(System.in);
     BoardRepository boardRepository = new BoardRepository();
-    List<BoardDTO> boardDTOList = new ArrayList<>();
+
 
     public void Writing() {
         System.out.print("제목 > ");

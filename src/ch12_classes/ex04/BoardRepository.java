@@ -2,10 +2,9 @@ package ch12_classes.ex04;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+
 
 public class BoardRepository {
-    BoardDTO boardDTO = new BoardDTO();
     public static List<BoardDTO> boardDTOList = new ArrayList<>();
 
     public boolean Writing(BoardDTO boardDTO) {
