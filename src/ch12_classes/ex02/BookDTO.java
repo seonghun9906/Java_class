@@ -1,4 +1,4 @@
-package ch11_classes.ex2;
+package ch12_classes.ex02;
 
 public class BookDTO {
     //DTO는 데이터를 전달하는 느낌

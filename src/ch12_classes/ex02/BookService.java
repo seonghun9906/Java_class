@@ -1,6 +1,4 @@
-package ch11_classes.ex2;
-
-import ch11_array.ex3.Book;
+package ch12_classes.ex02;
 
 import java.util.List;
 import java.util.Scanner;
@@ -137,5 +135,8 @@ public class BookService {
       }else{
           System.out.println("삭제 실패");
       }
+    }
+
+    public void Writing() {
     }
 }

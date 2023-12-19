@@ -1,4 +1,4 @@
-package ch11_classes.ex03;
+package ch12_classes.ex03;
 
 public class MemberDTO {
     private Long id;
@@ -74,15 +74,13 @@ public class MemberDTO {
     public MemberDTO(String memberLock) {
         this.memberLock = memberLock;
     }
-
-    @Override
     public String toString() {
-        return "MemberDTO{" +
+        return "회원정보{" +
                 "id=" + id +
-                ", memberEmail='" + memberEmail + '\'' +
-                ", memberPassword='" + memberPassword + '\'' +
-                ", memberName='" + memberName + '\'' +
-                ", memberMobile='" + memberMobile + '\'' +
+                ", Email='" + memberEmail + '\'' +
+                ", Password='" + memberPassword + '\'' +
+                ", Name='" + memberName + '\'' +
+                ", Mobile='" + memberMobile + '\'' +
                 '}';
     }
 }
