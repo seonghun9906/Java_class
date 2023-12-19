@@ -1,5 +1,8 @@
 package ch12_classes.ex04;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 public class BoardDTO {
     private Long id;
     private String boardTitle;
@@ -7,6 +10,7 @@ public class BoardDTO {
     private String boardContents;
     private String boardPassword;
     private int view;
+    private  String createdAt;
 
     public int getView() {
         return view;
@@ -56,6 +60,14 @@ public class BoardDTO {
         this.boardPassword = boardPassword;
     }
 
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
+    }
+
     public BoardDTO() {
 
     }
@@ -72,16 +84,19 @@ public class BoardDTO {
         this.boardWriter = boardWriter;
         this.boardContents = boardContents;
         this.boardPassword = boardPassword;
+        this.createdAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
 
     @Override
     public String toString() {
-        return "boardDTO{" +
+        return "BoardDTO{" +
                 "id=" + id +
-                ", Title='" + boardTitle + '\'' +
-                ", Writer='" + boardWriter + '\'' +
-                ", contents='" + boardContents + '\'' +
-                ", Password='" + boardPassword + '\'' +
+                ", boardTitle='" + boardTitle + '\'' +
+                ", boardWriter='" + boardWriter + '\'' +
+                ", boardContents='" + boardContents + '\'' +
+                ", boardPassword='" + boardPassword + '\'' +
+                ", view=" + view +
+                ", createdAt='" + createdAt + '\'' +
                 '}';
     }
 }

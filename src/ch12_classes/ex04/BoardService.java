@@ -32,10 +32,7 @@ public class BoardService {
 
     public void list() {
         List<BoardDTO> boardDTOList = boardRepository.list();
-        for (BoardDTO boardDTO : boardDTOList) {
-            System.out.println("id = " + boardDTO.getId() + '\'' + " Title = " + boardDTO.getBoardTitle() + '\'' + " Writer = " + boardDTO.getBoardWriter() + '\'' + " Contents = " + boardDTO.getBoardContents() + " view = " + '\'' + boardDTO.getView());
-
-        }
+        listPrint(boardDTOList);
     }
 
     public void view() {
@@ -111,12 +108,26 @@ public class BoardService {
         List<BoardDTO> boardDTOS = boardRepository.search(Title);
         if (boardDTOS.size() > 0) {
             for (BoardDTO boardDTO : boardDTOS) {
-                System.out.println("글 ID = " + boardDTO.getId() + " 글 제목 = " + boardDTO.getBoardTitle() + " 글 작성자 = " + boardDTO.getBoardContents() + " 글 조회수 = " + boardDTO.getView());
+             listPrint(boardDTOS);
             }
         } else {
             System.out.println("검색결과가 없습니다.");
         }
     }
+
+    // 목록 출력 전용 메서드
+    // list, search 메서드로 부터 list 데이터를 전달 받아서 출력을 하는 메서드
+    private void listPrint(List<BoardDTO> boardDTOList){
+        for (BoardDTO boardDTO : boardDTOList) {
+            System.out.println("id = " + boardDTO.getId() + '\'' +
+                    " Title = " + boardDTO.getBoardTitle() + '\'' +
+                    " Writer = " + boardDTO.getBoardWriter() + '\'' +
+                    " Contents = " + boardDTO.getBoardContents() + '\'' +
+                    " view = " + '\'' + boardDTO.getView() + '\'' +
+                    " date = "+ boardDTO.getCreatedAt());
+        }
+    }
+
+
+
 }
-
-
