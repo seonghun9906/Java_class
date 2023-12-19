@@ -33,21 +33,20 @@ public class BoardRepository {
                 result = true;
             }
         }
-        return result  ;
+        return result;
     }
 
-    public boolean Edit(Long id , String Title, String Contents) {
+    public boolean Edit(Long id, String Title, String Contents) {
         boolean result = false;
         for (int i = 0; i < boardDTOList.size(); i++) {
-            if(id.equals(boardDTOList.get(i).getId())){
-            boardDTOList.get(i).setBoardTitle(Title);
-            boardDTOList.get(i).setBoardContents(Contents);
+            if (id.equals(boardDTOList.get(i).getId())) {
+                boardDTOList.get(i).setBoardTitle(Title);
+                boardDTOList.get(i).setBoardContents(Contents);
                 result = true;
             }
         }
         return result;
-        }
-
+    }
 
 
     public boolean Del(Long id, String pw) {
@@ -55,7 +54,7 @@ public class BoardRepository {
         for (int i = 0; i < boardDTOList.size(); i++) {
             if (id.equals(boardDTOList.get(i).getId()) && pw.equals(boardDTOList.get(i).getBoardPassword())) {
                 boardDTOList.remove(i);
-               result = true;
+                result = true;
             }
         }
         return result;
@@ -64,13 +63,11 @@ public class BoardRepository {
     public List<BoardDTO> search(String title) {
         //검색결과를 담을 리스트 선언;
         List<BoardDTO> boardDTOS = new ArrayList<>();
-        //저장되어 있는 검색어가 도서에 있으면 true
-        for (int i = 0; i <boardDTOList.size() ; i++) {
-            if(boardDTOList.get(i).getBoardTitle().contains(title)){
+        for (int i = 0; i < boardDTOList.size(); i++) {
+            if (boardDTOList.get(i).getBoardTitle().contains(title)) {
                 boardDTOS.add(boardDTOList.get(i));
             }
         }
-        //리시트에 담겨지면 true로 return됨.
         return boardDTOS;
     }
 }

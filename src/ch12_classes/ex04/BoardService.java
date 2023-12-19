@@ -33,9 +33,7 @@ public class BoardService {
     public void list() {
         List<BoardDTO> boardDTOList = boardRepository.list();
         for (BoardDTO boardDTO : boardDTOList) {
-            System.out.println("id = " + boardDTO.getId() + '\'' + " Title = " + boardDTO.getBoardTitle()
-                    + '\'' + " Writer = " + boardDTO.getBoardWriter() + '\'' + " Contents = " + boardDTO.getBoardContents()
-                    + " view = " + '\'' + boardDTO.getView());
+            System.out.println("id = " + boardDTO.getId() + '\'' + " Title = " + boardDTO.getBoardTitle() + '\'' + " Writer = " + boardDTO.getBoardWriter() + '\'' + " Contents = " + boardDTO.getBoardContents() + " view = " + '\'' + boardDTO.getView());
 
         }
     }
@@ -74,13 +72,13 @@ public class BoardService {
             String EditTitle = sc.next();
             System.out.print("수정할 내용 > ");
             String EditContents = sc.next();
-        boolean Edit = boardRepository.Edit(Id, EditTitle, EditContents);
-            if(Edit){
+            boolean Edit = boardRepository.Edit(Id, EditTitle, EditContents);
+            if (Edit) {
                 System.out.println("수정이 성공하였습니다.");
-            }else {
+            } else {
                 System.out.println("수정이 실패하였습니다.");
             }
-        }else{
+        } else {
             System.out.println("ID 와 비밀번호가 틀렸습니다.");
         }
     }
@@ -93,9 +91,9 @@ public class BoardService {
         System.out.print("비밀번호 입력 > ");
         String Pw = sc.next();
         boolean Del = boardRepository.Del(Id, Pw);
-        if(Del){
+        if (Del) {
             System.out.println("해당 글이 삭제되었습니다.");
-        }else{
+        } else {
             System.out.println("해당 글이 삭제 되지 않았습니다. ID 와 비밀번호를 다시 확인해주세요.");
         }
     }
@@ -105,12 +103,11 @@ public class BoardService {
         System.out.println("글 제목 > ");
         String Title = sc.next();
         List<BoardDTO> boardDTOS = boardRepository.search(Title);
-        if(boardDTOS.size() > 0){
-            for(BoardDTO boardDTO : boardDTOS){
-                System.out.println("글 ID = " + boardDTO.getId()+" 글 제목 = " + boardDTO.getBoardTitle()
-           + " 글 작성자 = "+ boardDTO.getBoardContents() + " 글 조회수 = " + boardDTO.getView());
+        if (boardDTOS.size() > 0) {
+            for (BoardDTO boardDTO : boardDTOS) {
+                System.out.println("글 ID = " + boardDTO.getId() + " 글 제목 = " + boardDTO.getBoardTitle() + " 글 작성자 = " + boardDTO.getBoardContents() + " 글 조회수 = " + boardDTO.getView());
             }
-        }else{
+        } else {
             System.out.print("검색결과가 없습니다.");
         }
     }

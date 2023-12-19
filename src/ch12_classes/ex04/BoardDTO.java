@@ -60,9 +60,10 @@ public class BoardDTO {
 
     }
 
-    public void view(){
+    public void view() {
         this.view++;
     }
+
     public static Long idValue = 1L;
 
     public BoardDTO(String boardTitle, String boardWriter, String boardContents, String boardPassword) {
@@ -72,6 +73,7 @@ public class BoardDTO {
         this.boardContents = boardContents;
         this.boardPassword = boardPassword;
     }
+
     @Override
     public String toString() {
         return "boardDTO{" +
