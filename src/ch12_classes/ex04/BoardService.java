@@ -40,8 +40,10 @@ public class BoardService {
 
     public void view() {
         System.out.print("게시글 번호를 입력하세요 > ");
-        Long id = sc.nextLong();
         List<BoardDTO> boardDTOList = boardRepository.list();
+        Long id = sc.nextLong();
+
+        boolean found = false; //// 해당 ID에 대한 게시글이 있는지 여부를 나타내는 플래그
 
         for (BoardDTO boardDTO : boardDTOList) {
             if (id.equals(boardDTO.getId())) {
@@ -49,14 +51,18 @@ public class BoardService {
                 boolean view = boardRepository.view(boardDTO); //조회수 증가 메서드 호출
                 if (view) {
                     System.out.println("해당 게시글 조회수는 " + boardDTO.getView() + " 입니다.");
-
                 } else {
                     System.out.println("오류로 인해 조회수 증가에 실패하였습니다.");
                 }
+                found = true; // 해당 ID에 대한 게시글을 찾았음을 표시
+                break; // 해당 ID를 가진 게시글을 찾았으므로 루프 종료
             }
         }
-
+        if (!found) {
+            System.out.println("저장되어있지 않은 ID 입니다.");
+        }
     }
+
 
     public void Edit() {
         System.out.println("글 수정을 위해 수정하는 글의 ID와 비밀번호를 입력해주세요.");
@@ -79,7 +85,7 @@ public class BoardService {
                 System.out.println("수정이 실패하였습니다.");
             }
         } else {
-            System.out.println("ID 와 비밀번호가 틀렸습니다.");
+            System.out.println("수정에 실패하였습니다. ID 와 비밀번호를 다시 확인해주세요..");
         }
     }
 
@@ -100,7 +106,7 @@ public class BoardService {
 
     public void search() {
         System.out.println("원하시는 글의 제목을 입력해주세요.");
-        System.out.println("글 제목 > ");
+        System.out.print("글 제목 > ");
         String Title = sc.next();
         List<BoardDTO> boardDTOS = boardRepository.search(Title);
         if (boardDTOS.size() > 0) {
@@ -108,7 +114,7 @@ public class BoardService {
                 System.out.println("글 ID = " + boardDTO.getId() + " 글 제목 = " + boardDTO.getBoardTitle() + " 글 작성자 = " + boardDTO.getBoardContents() + " 글 조회수 = " + boardDTO.getView());
             }
         } else {
-            System.out.print("검색결과가 없습니다.");
+            System.out.println("검색결과가 없습니다.");
         }
     }
 }
