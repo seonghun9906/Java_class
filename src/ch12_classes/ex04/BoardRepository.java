@@ -55,7 +55,7 @@ public class BoardRepository {
         for (int i = 0; i < boardDTOList.size(); i++) {
             if (id.equals(boardDTOList.get(i).getId()) && pw.equals(boardDTOList.get(i).getBoardPassword())) {
                 boardDTOList.remove(i);
-               return result = true;
+               result = true;
             }
         }
         return result;
