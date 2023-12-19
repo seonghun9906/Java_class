@@ -2,12 +2,12 @@ package ch12_classes.ex04;
 
 import java.util.Scanner;
 
-public class boardMain {
+public class BoardMain {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int num = 0;
         boolean run = true;
-        boardService boardService = new boardService();
+        BoardService boardService = new BoardService();
 
         while(run){
             System.out.println("------------------------------------------------------------------");
@@ -18,6 +18,18 @@ public class boardMain {
             num = sc.nextInt();
             if(num == 1){
                 boardService.Writing();
+            }else if(num == 2){
+                boardService.list();
+            }else if(num == 3){
+                boardService.view();
+            }else if(num == 4){
+                boardService.Edit();
+            }else if(num == 5){
+                boardService.Del();
+            }else if(num == 6){
+                boardService.search();
+            }else if(num == 0){
+                run = false;
             }
         }
     }

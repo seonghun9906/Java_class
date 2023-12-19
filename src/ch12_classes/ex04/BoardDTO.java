@@ -1,11 +1,20 @@
 package ch12_classes.ex04;
 
-public class boardDTO {
+public class BoardDTO {
     private Long id;
     private String boardTitle;
     private String boardWriter;
     private String boardContents;
     private String boardPassword;
+    private int view;
+
+    public int getView() {
+        return view;
+    }
+
+    public void setView(int view) {
+        this.view = view;
+    }
 
     public Long getId() {
         return id;
@@ -47,13 +56,16 @@ public class boardDTO {
         this.boardPassword = boardPassword;
     }
 
-    public boardDTO() {
+    public BoardDTO() {
 
     }
 
+    public void view(){
+        this.view++;
+    }
     public static Long idValue = 1L;
 
-    public boardDTO(String boardTitle, String boardWriter, String boardContents, String boardPassword) {
+    public BoardDTO(String boardTitle, String boardWriter, String boardContents, String boardPassword) {
         this.id = idValue++;
         this.boardTitle = boardTitle;
         this.boardWriter = boardWriter;
@@ -66,7 +78,7 @@ public class boardDTO {
                 "id=" + id +
                 ", Title='" + boardTitle + '\'' +
                 ", Writer='" + boardWriter + '\'' +
-                ", ontents='" + boardContents + '\'' +
+                ", contents='" + boardContents + '\'' +
                 ", Password='" + boardPassword + '\'' +
                 '}';
     }
