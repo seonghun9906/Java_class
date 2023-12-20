@@ -87,25 +87,6 @@ public class BankRepository {
         }
     }
 
-
-    public void depositDetail(String accountNum) {
-        for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNum.equals(bankingList.get(i).getAccountNumber())) {
-                System.out.println(bankingList.get(i).getDeposit() + " " + bankingList.get(i).getBankKingAt());
-            }
-
-        }
-    }
-
-    public void withDrawDetail(String accountNum) {
-        for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNum.equals(bankingList.get(i).getAccountNumber())) {
-                System.out.println(bankingList.get(i).getWithdraw() + " " + bankingList.get(i).getBankKingAt());
-
-            }
-        }
-    }
-
     public void List(String accountNum) {
         for (int i = 0; i < bankingList.size(); i++) {
             if (accountNum.equals(bankingList.get(i).getAccountNumber())) {
@@ -114,5 +95,26 @@ public class BankRepository {
             }
         }
     }
+    public void depositDetail(String accountNum) {
+        for (int i = 0; i < bankingList.size(); i++) {
+            if (accountNum.equals(bankingList.get(i).getAccountNumber())) {
+                if(bankingList.get(i).getDeposit() > 0) {
+                    System.out.println("입금 : " + bankingList.get(i).getDeposit() + " " + bankingList.get(i).getBankKingAt());
+                }
+                }
+
+        }
+    }
+
+    public void withDrawDetail(String accountNum) {
+        for (int i = 0; i < bankingList.size(); i++) {
+            if (accountNum.equals(bankingList.get(i).getAccountNumber())) {
+                if(bankingList.get(i).getWithdraw() > 0 ) {
+                    System.out.println("출금 : " + bankingList.get(i).getWithdraw() + " " + bankingList.get(i).getBankKingAt());
+                }
+            }
+        }
+    }
+
 }
 
