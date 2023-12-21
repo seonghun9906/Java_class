@@ -11,6 +11,10 @@ public class BoardDTO {
     public int boardHits;
     public String cratedAt;
 
+    public BoardDTO() {
+
+    }
+
     public Long getId() {
         return id;
     }
@@ -58,9 +62,11 @@ public class BoardDTO {
     public void setCratedAt(String cratedAt) {
         this.cratedAt = cratedAt;
     }
+
     public static Long idvalue = 1L;
-    public BoardDTO(String boardTitle, String boardWriter, String boardContents, int boardHits) {
-        this.id = idvalue;
+
+    public BoardDTO(String boardTitle, String boardWriter, String boardContents, int boardHits, String cratedAt) {
+        this.id = idvalue++;
         this.boardTitle = boardTitle;
         this.boardWriter = boardWriter;
         this.boardContents = boardContents;
@@ -70,13 +76,13 @@ public class BoardDTO {
 
     @Override
     public String toString() {
-        return "BoardDTO{" +
-                "id=" + id +
-                ", boardTitle='" + boardTitle + '\'' +
-                ", boardWriter='" + boardWriter + '\'' +
-                ", boardContents='" + boardContents + '\'' +
-                ", boardHits=" + boardHits +
-                ", cratedAt='" + cratedAt + '\'' +
-                '}';
+        return
+                id +
+                        boardTitle + '\'' +
+                        boardWriter + '\'' +
+                        boardContents + '\'' +
+                        boardHits +
+                        cratedAt + '\'';
+
     }
 }

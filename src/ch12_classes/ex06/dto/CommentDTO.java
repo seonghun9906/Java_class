@@ -50,7 +50,7 @@ public class CommentDTO {
         this.createdAt = createdAt;
     }
     public static Long idValue = 1L;
-    public CommentDTO(Long id, String boardId, String commentWriter, String commentContents) {
+    public CommentDTO(String boardId, String commentWriter, String commentContents, String createtdAt) {
         this.id = idValue++;
         this.boardId = boardId;
         this.commentWriter = commentWriter;
