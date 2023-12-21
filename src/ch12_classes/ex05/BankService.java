@@ -107,6 +107,8 @@ public class BankService {
                 } else if (selectNum == 4) {
                     run = false;
                 }
+            }else{
+                System.out.println("존재하지 않은 계좌번호 입니다.");
             }
         }
     }
@@ -118,17 +120,17 @@ public class BankService {
         while (run) {
             System.out.println("1. 계좌이체 기능 | 2. 종료");
             num1 = sc.nextInt();
-            if(num1 == 1){
-            System.out.print("보내는 계좌번호 > ");
-            String sender = sc.next();
-            System.out.print("받는 계좌번호 > ");
-            String reciver = sc.next();
-            if (!Objects.equals(sender, reciver)) {
-            System.out.print("보낼 돈 > ");
-            long Money = sc.nextLong();
-                System.out.println("받으실분이 " + reciver + " 님이 맞습니까? ");
-                System.out.println("맞으면 1번 틀리면 2번을 눌러주세요");
-                int num = sc.nextInt();
+            if (num1 == 1) {
+                System.out.print("보내는 계좌번호 > ");
+                String sender = sc.next();
+                System.out.print("받는 계좌번호 > ");
+                String reciver = sc.next();
+                if (!Objects.equals(sender, reciver)) {
+                    System.out.print("보낼 돈 > ");
+                    long Money = sc.nextLong();
+                    System.out.println("받으실분이 " + reciver + " 님이 맞습니까? ");
+                    System.out.println("맞으면 1번 틀리면 2번을 눌러주세요");
+                    int num = sc.nextInt();
                     if (num == 1) {
                         System.out.print("비밀번호를 입력해주세요. >");
                         String Pw = sc.next();
@@ -141,15 +143,14 @@ public class BankService {
                     } else if (num == 2) {
                         System.out.println(" 처음부터 다시 입력해 주세요.");
                     }
-                }else{
+                } else {
                     System.out.println("보내는 분과 받는분의 계좌가 일치합니다. 다른 계좌번호를 입력해주세요.");
                 }
-            }else if (num1 == 2){
+            } else if (num1 == 2) {
                 run = false;
             }
         }
     }
-
 
 
 }

@@ -121,25 +121,25 @@ public class BankRepository {
 
     public boolean accountNumCheck(String sender, String reciver, String pw, long money, String a) {
         boolean result = false;
-        for (int i = 0; i < clientDTOList.size(); i++) {
-            if (sender.equals(clientDTOList.get(i).getAccountNumber()) && pw.equals(clientDTOList.get(i).getClientPass())) {
-                if (clientDTOList.get(i).getBalance() >= money) {
-                    long b = clientDTOList.get(i).getBalance();
+        for (ClientDTO clientDTO : clientDTOList) {
+            if (sender.equals(clientDTO.getAccountNumber()) && pw.equals(clientDTO.getClientPass())) {
+                if (clientDTO.getBalance() >= money) {
+                    long b = clientDTO.getBalance();
                     long c = b - money;
-                    clientDTOList.get(i).setBalance(c);
+                    clientDTO.setBalance(c);
                     AccountDTO accountDTO = new AccountDTO(sender, 0, money, a);
                     bankingList.add(accountDTO);
-                    for (int j = 0; j < clientDTOList.size(); j++) {
-                        if(reciver.equals(clientDTOList.get(j).getAccountNumber())) {
-                            long d = clientDTOList.get(j).getBalance();
+                    for (ClientDTO clientDTO1 : clientDTOList) {
+                        if (reciver.equals(clientDTO1.getAccountNumber())) {
+                            long d = clientDTO1.getBalance();
                             long e = d + money;
-                            clientDTOList.get(j).setBalance(e);
+                            clientDTO1.setBalance(e);
                             AccountDTO accountDTO1 = new AccountDTO(reciver, money, 0, a);
                             bankingList.add(accountDTO1);
                         }
                     }
                     result = true;
-                }else{
+                } else {
                     System.out.println("잔액이 부족합니다.");
                 }
             }

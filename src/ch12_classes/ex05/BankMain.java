@@ -23,20 +23,15 @@ public class BankMain {
                 bankService.Balance();
             } else if (selectNum == 3) {
                 bankService.deposit();
-            } else if(selectNum == 4){
+            } else if (selectNum == 4) {
                 bankService.withdraw();
-            }else if(selectNum == 5){
+            } else if (selectNum == 5) {
                 bankService.detail();
-            }else if(selectNum == 6){
+            } else if (selectNum == 6) {
                 bankService.transfer();
-            }
-            else if (selectNum == 0) {
+            } else if (selectNum == 0) {
                 run = false;
-
-
             }
-
-
         }
     }
 }

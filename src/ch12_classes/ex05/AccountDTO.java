@@ -49,10 +49,13 @@ public class AccountDTO {
     public void setBankKingAt(String bankKingAt) {
         this.bankKingAt = bankKingAt;
     }
-    public  AccountDTO(){
+
+    public AccountDTO() {
 
     }
+
     public static Long idValue = 1L;
+
     public AccountDTO(String accountNumber, long deposit, long withdraw, String bankKingAt) {
         this.id = idValue;
         this.accountNumber = accountNumber;
@@ -61,10 +64,11 @@ public class AccountDTO {
         this.bankKingAt = bankKingAt;
     }
 
-    public AccountDTO(long deposit){
+    public AccountDTO(long deposit) {
         this.deposit = deposit;
         this.bankKingAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
     }
+
     @Override
     public String toString() {
         return "AccountDTO{" +

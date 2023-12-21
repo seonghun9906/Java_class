@@ -7,8 +7,8 @@ import java.time.format.DateTimeFormatter;
 public class ClientDTO {
     public Long id;
     public String clientName;
-    public  String accountNumber;
-    public String  clientPass;
+    public String accountNumber;
+    public String clientPass;
     public String clientCreatedAt;
     public long balance;
 
@@ -69,10 +69,12 @@ public class ClientDTO {
     }
 
 
-    public ClientDTO(){
+    public ClientDTO() {
 
     }
-    public static Long idValue =1L;
+
+    public static Long idValue = 1L;
+
     public ClientDTO(String clientName, String accountNumber, String clientPass, Long balance) {
         this.id = idValue++;
         this.clientName = clientName;
