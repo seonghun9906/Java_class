@@ -11,9 +11,10 @@ public class BankRepository {
 
     public boolean saveCheck(String accountNum) {
         boolean result = false;
-        for (int i = 0; i < clientDTOList.size(); i++) {
-            if (accountNum.equals(clientDTOList.get(i).getAccountNumber())) {
+        for (ClientDTO clientDTO : clientDTOList) {
+            if (accountNum.equals(clientDTO.getAccountNumber())) {
                 result = true;
+                break;
             }
         }
         return result;
@@ -25,9 +26,9 @@ public class BankRepository {
 
     public boolean balance(String accountNum) {
         boolean result = false;
-        for (int i = 0; i < clientDTOList.size(); i++) {
-            if (accountNum.equals(clientDTOList.get(i).getAccountNumber())) {
-                System.out.println("현재 잔액은 " + clientDTOList.get(i).getBalance() + " 원 입니다.");
+        for (ClientDTO clientDTO : clientDTOList) {
+            if (accountNum.equals(clientDTO.getAccountNumber())) {
+                System.out.println("현재 잔액은 " + clientDTO.getBalance() + " 원 입니다.");
                 result = true;
                 break;
             }
@@ -39,16 +40,16 @@ public class BankRepository {
         long accountBalanceA = 0;
         long accountBalanceB = 0;
 
-        for (int i = 0; i < clientDTOList.size(); i++) {
-            if (accountNumber.equals(clientDTOList.get(i).getAccountNumber())) {
-                accountBalanceA = clientDTOList.get(i).getBalance();
+        for (ClientDTO clientDTO : clientDTOList) {
+            if (accountNumber.equals(clientDTO.getAccountNumber())) {
+                accountBalanceA = clientDTO.getBalance();
                 accountBalanceB = accountBalanceA + deposit;
-                clientDTOList.get(i).setBalance(accountBalanceB);
+                clientDTO.setBalance(accountBalanceB);
 
                 //입출금 과정 accountDTO에 저장하는 과정
                 AccountDTO accountDTO = new AccountDTO(accountNumber, deposit, 0, at);
                 bankingList.add(accountDTO);
-                System.out.println("입금되었습니다. 현재 잔액은 " + clientDTOList.get(i).getBalance() + " 원 입니다. " + at);
+                System.out.println("입금되었습니다. 현재 잔액은 " + clientDTO.getBalance() + " 원 입니다. " + at);
                 break;
             }
         }
@@ -56,8 +57,8 @@ public class BankRepository {
 
     public boolean withDrawCheck(String accountNum, String accountPw) {
         boolean result = false;
-        for (int i = 0; i < clientDTOList.size(); i++) {
-            if (accountNum.equals(clientDTOList.get(i).getAccountNumber()) && accountPw.equals(clientDTOList.get(i).getClientPass())) {
+        for (ClientDTO clientDTO : clientDTOList) {
+            if (accountNum.equals(clientDTO.getAccountNumber()) && accountPw.equals(clientDTO.getClientPass())) {
                 result = true;
             } else {
                 System.out.println("존재하지 않은 계좌번호 이거나, 비밀번호가 올바르지 않습니다.");
@@ -70,13 +71,13 @@ public class BankRepository {
         long accountBalanceA = 0;
         long accountBalanceB = 0;
 
-        for (int i = 0; i < clientDTOList.size(); i++) {
-            if (clientDTOList.get(i).getBalance() >= withDraw) {
-                if (accountNumber.equals(clientDTOList.get(i).getAccountNumber())) {
-                    accountBalanceA = clientDTOList.get(i).getBalance();
+        for (ClientDTO clientDTO : clientDTOList) {
+            if (clientDTO.getBalance() >= withDraw) {
+                if (accountNumber.equals(clientDTO.getAccountNumber())) {
+                    accountBalanceA = clientDTO.getBalance();
                     accountBalanceB = accountBalanceA - withDraw;
-                    clientDTOList.get(i).setBalance(accountBalanceB);
-                    System.out.println("출금되었습니다. 현재 잔액은 " + clientDTOList.get(i).getBalance() + " 원 입니다. " + a);
+                    clientDTO.setBalance(accountBalanceB);
+                    System.out.println("출금되었습니다. 현재 잔액은 " + clientDTO.getBalance() + " 원 입니다. " + a);
                     //입출금 과정 accountDTO에 저장하는 과정
                     AccountDTO accountDTO = new AccountDTO(accountNumber, 0, withDraw, a);
                     bankingList.add(accountDTO);
@@ -89,19 +90,19 @@ public class BankRepository {
     }
 
     public void List(String accountNum) {
-        for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNum.equals(bankingList.get(i).getAccountNumber())) {
-                System.out.println(bankingList.get(i));
+        for (AccountDTO accountDTO : bankingList) {
+            if (accountNum.equals(accountDTO.getAccountNumber())) {
+                System.out.println(accountDTO);
 
             }
         }
     }
 
     public void depositDetail(String accountNum) {
-        for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNum.equals(bankingList.get(i).getAccountNumber())) {
-                if (bankingList.get(i).getDeposit() > 0) {
-                    System.out.println("입금 : " + bankingList.get(i).getDeposit() + " " + bankingList.get(i).getBankKingAt());
+        for (AccountDTO accountDTO : bankingList) {
+            if (accountNum.equals(accountDTO.getAccountNumber())) {
+                if (accountDTO.getDeposit() > 0) {
+                    System.out.println("입금 : " + accountDTO.getDeposit() + " " + accountDTO.getBankKingAt());
                 }
             }
 
@@ -109,10 +110,10 @@ public class BankRepository {
     }
 
     public void withDrawDetail(String accountNum) {
-        for (int i = 0; i < bankingList.size(); i++) {
-            if (accountNum.equals(bankingList.get(i).getAccountNumber())) {
-                if (bankingList.get(i).getWithdraw() > 0) {
-                    System.out.println("출금 : " + bankingList.get(i).getWithdraw() + " " + bankingList.get(i).getBankKingAt());
+        for (AccountDTO accountDTO : bankingList) {
+            if (accountNum.equals(accountDTO.getAccountNumber())) {
+                if (accountDTO.getWithdraw() > 0) {
+                    System.out.println("출금 : " + accountDTO.getWithdraw() + " " + accountDTO.getBankKingAt());
                 }
             }
         }
