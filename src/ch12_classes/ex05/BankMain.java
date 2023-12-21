@@ -27,7 +27,10 @@ public class BankMain {
                 bankService.withdraw();
             }else if(selectNum == 5){
                 bankService.detail();
-            } else if (selectNum == 0) {
+            }else if(selectNum == 6){
+                bankService.transfer();
+            }
+            else if (selectNum == 0) {
                 run = false;
 
 

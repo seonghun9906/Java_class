@@ -3,6 +3,7 @@ package ch12_classes.ex05;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class BankRepository {
     List<ClientDTO> clientDTOList = new ArrayList<>();
@@ -70,18 +71,18 @@ public class BankRepository {
         long accountBalanceB = 0;
 
         for (int i = 0; i < clientDTOList.size(); i++) {
-            if(clientDTOList.get(i).getBalance() >= withDraw){
-            if (accountNumber.equals(clientDTOList.get(i).getAccountNumber())) {
-                accountBalanceA = clientDTOList.get(i).getBalance();
-                accountBalanceB = accountBalanceA - withDraw;
-                clientDTOList.get(i).setBalance(accountBalanceB);
-                System.out.println("출금되었습니다. 현재 잔액은 " + clientDTOList.get(i).getBalance() + " 원 입니다. " + a);
-                //입출금 과정 accountDTO에 저장하는 과정
-                AccountDTO accountDTO = new AccountDTO(accountNumber, 0, withDraw, a);
-                bankingList.add(accountDTO);
-                break;
-            }
-            }else{
+            if (clientDTOList.get(i).getBalance() >= withDraw) {
+                if (accountNumber.equals(clientDTOList.get(i).getAccountNumber())) {
+                    accountBalanceA = clientDTOList.get(i).getBalance();
+                    accountBalanceB = accountBalanceA - withDraw;
+                    clientDTOList.get(i).setBalance(accountBalanceB);
+                    System.out.println("출금되었습니다. 현재 잔액은 " + clientDTOList.get(i).getBalance() + " 원 입니다. " + a);
+                    //입출금 과정 accountDTO에 저장하는 과정
+                    AccountDTO accountDTO = new AccountDTO(accountNumber, 0, withDraw, a);
+                    bankingList.add(accountDTO);
+                    break;
+                }
+            } else {
                 System.out.println("잔액이 부족합니다.");
             }
         }
@@ -95,13 +96,14 @@ public class BankRepository {
             }
         }
     }
+
     public void depositDetail(String accountNum) {
         for (int i = 0; i < bankingList.size(); i++) {
             if (accountNum.equals(bankingList.get(i).getAccountNumber())) {
-                if(bankingList.get(i).getDeposit() > 0) {
+                if (bankingList.get(i).getDeposit() > 0) {
                     System.out.println("입금 : " + bankingList.get(i).getDeposit() + " " + bankingList.get(i).getBankKingAt());
                 }
-                }
+            }
 
         }
     }
@@ -109,12 +111,47 @@ public class BankRepository {
     public void withDrawDetail(String accountNum) {
         for (int i = 0; i < bankingList.size(); i++) {
             if (accountNum.equals(bankingList.get(i).getAccountNumber())) {
-                if(bankingList.get(i).getWithdraw() > 0 ) {
+                if (bankingList.get(i).getWithdraw() > 0) {
                     System.out.println("출금 : " + bankingList.get(i).getWithdraw() + " " + bankingList.get(i).getBankKingAt());
                 }
             }
         }
     }
 
+
+    public boolean accountNumCheck(String sender, String reciver, String pw, long money, String a) {
+        boolean result = false;
+        for (int i = 0; i < clientDTOList.size(); i++) {
+            if (sender.equals(clientDTOList.get(i).getAccountNumber()) && pw.equals(clientDTOList.get(i).getClientPass())) {
+                if (clientDTOList.get(i).getBalance() >= money) {
+                    long b = clientDTOList.get(i).getBalance();
+                    long c = b - money;
+                    clientDTOList.get(i).setBalance(c);
+                    AccountDTO accountDTO = new AccountDTO(sender, 0, money, a);
+                    bankingList.add(accountDTO);
+                    for (int j = 0; j < clientDTOList.size(); j++) {
+                        if(reciver.equals(clientDTOList.get(j).getAccountNumber())) {
+                            long d = clientDTOList.get(j).getBalance();
+                            long e = d + money;
+                            clientDTOList.get(j).setBalance(e);
+                            AccountDTO accountDTO1 = new AccountDTO(reciver, money, 0, a);
+                            bankingList.add(accountDTO1);
+                        }
+                    }
+                    result = true;
+                }else{
+                    System.out.println("잔액이 부족합니다.");
+                }
+            }
+        }
+        return result;
+    }
 }
+
+
+
+
+
+
+
 

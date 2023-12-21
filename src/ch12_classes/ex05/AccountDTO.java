@@ -68,11 +68,11 @@ public class AccountDTO {
     @Override
     public String toString() {
         return "AccountDTO{" +
-                "id=" + id +
-                ", accountNumber='" + accountNumber + '\'' +
-                ", deposit=" + deposit +
-                ", withdraw=" + withdraw +
-                ", bankKingAt='" + bankKingAt + '\'' +
+                " 관리 id=" + id +
+                ", 계좌번호 ='" + accountNumber + '\'' +
+                ", 입금 내역 =" + deposit +
+                ", 출금 내역 =" + withdraw +
+                ", 거래 시간 ='" + bankKingAt + '\'' +
                 '}';
     }
 }
