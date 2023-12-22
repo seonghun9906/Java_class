@@ -28,13 +28,12 @@ public class MemberRepository {
             if (memEmail.equals(memberDTO.getMemberEmail()) && memPw.equals(memberDTO.getMemberPassword())) {
                 return memberDTO;
             }
-        }return null;
+        }
+        return null;
     }
 
     public List<MemberDTO> memList() {
         for (int i = 0; i < memberDTOList.size(); i++) {
-           return memberDTOList;
-
         }
         return memberDTOList;
     }

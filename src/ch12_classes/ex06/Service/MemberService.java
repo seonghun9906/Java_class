@@ -6,10 +6,8 @@ import ch12_classes.ex06.repository.MemberRepository;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
-import java.util.SplittableRandom;
 
 public class MemberService {
     MemberRepository memberRepository = new MemberRepository();
@@ -44,7 +42,7 @@ public class MemberService {
                     System.out.println("중복된 이메일입니다. 다른 이메일을 적어주세요.");
                 }
             }
-        }else{
+        } else {
             System.out.println("로그아웃 해주세요.");
         }
     }
@@ -64,7 +62,6 @@ public class MemberService {
         } else {
             System.out.println("로그인에 실패하였습니다.");
         }
-
     }
 
     public void MemList() {
@@ -78,7 +75,7 @@ public class MemberService {
             } else {
                 System.out.println("오류로 인해서 회원목록 공개가 안됩니다.");
             }
-        }else{
+        } else {
             System.out.println("로그인 해주세요.");
         }
     }
@@ -108,7 +105,7 @@ public class MemberService {
             } else {
                 System.out.println("존재하지 않은 Eamil 입니다.");
             }
-        }else{
+        } else {
             System.out.println("로그인 해주세요.");
         }
     }
@@ -124,16 +121,16 @@ public class MemberService {
             } else {
                 System.out.println("회원탈퇴에 실패 하였습니다.");
             }
-        }else{
+        } else {
             System.out.println("로그인 해주세요.");
         }
     }
 
     public void LogOut() {
-        if(CommonVariables.longinEmail != null){
+        if (CommonVariables.longinEmail != null) {
             CommonVariables.longinEmail = null;
             System.out.println("로그아웃 되었습니다.");
-        }else {
+        } else {
             System.out.println("오류로 인해 로그아웃이 되지 않았습니다.");
         }
     }
