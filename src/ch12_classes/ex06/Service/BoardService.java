@@ -46,7 +46,15 @@ public class BoardService {
     public void boardList() {
         boolean LoginCheck = boardRepository.LoginCheck(CommonVariables.longinEmail);
         if (LoginCheck) {
-            boardRepository.boardList();
+          List<BoardDTO> boardDTOList = boardRepository.boardList();
+          if(!boardDTOList.isEmpty()){
+              System.out.println("id" +  "   title" + "    writer " + "    hits ");
+              for (int i = 0; i < boardDTOList.size(); i++) {
+              System.out.println(boardDTOList.get(i).getId() +"        " +boardDTOList.get(i).getBoardTitle() + "       " + boardDTOList.get(i).getBoardWriter() + "      " + boardDTOList.get(i).getBoardHits());
+              }
+          }else{
+              System.out.println("작성된 글이 없습니다.");
+          }
         }
     }
 
@@ -58,7 +66,12 @@ public class BoardService {
             boolean open = boardRepository.ListOpen(boardId);
             if (open) {
                 System.out.println("========= 댓 글 =========");
-                boardRepository.LookComment(boardId);
+                List<CommentDTO> commentDTOS = boardRepository.LookComment(boardId);
+                if (!commentDTOS.isEmpty()) {
+                    System.out.println(commentDTOS);
+                }else{
+                    System.out.println("작성된 댓글이 없습니다.");
+                }
                 System.out.println("댓글을 작성하시려면 1번을 입력해주세요.");
                 System.out.println("메인메뉴로 돌아가려면 2번을 입력해주세요.");
                 System.out.print("입력 > ");
@@ -136,9 +149,11 @@ public class BoardService {
             System.out.print("검색 할 id > ");
             String search = sc.next();
 
-            boolean Search = boardRepository.boardSearchCheck(search);
-                if(Search){
-                    System.out.println("위와 같은 글이 검색되었습니다.");
+            List<BoardDTO> boardDTOList = boardRepository.boardSearchCheck(search);
+                if(!boardDTOList.isEmpty()){
+                    for (int i = 0; i < boardDTOList.size(); i++) {
+                        System.out.println("글 제목 : " + boardDTOList.get(i).getBoardTitle());
+                    }
                 }else{
                     System.out.println("제목이 존재하지 않습니다.");
                 }

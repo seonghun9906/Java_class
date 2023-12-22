@@ -25,12 +25,11 @@ public class BoardRepository {
         return result;
     }
 
-    public void boardList() {
-        System.out.println(" id " + "    " + " 제목 " + "    " + " 조회수 " + "    " + " 작성 시간 ");
+    public List<BoardDTO> boardList() {
         for (int i = 0; i < boardDTOList.size(); i++) {
-            System.out.println("  " + boardDTOList.get(i).getId() + "       " + boardDTOList.get(i).getBoardTitle() + "        " + boardDTOList.get(i).getBoardHits() + "       " + boardDTOList.get(i).getCratedAt());
+            return boardDTOList;
         }
-
+        return boardDTOList;
     }
 
 
@@ -48,16 +47,15 @@ public class BoardRepository {
         return result;
     }
 
-    public void LookComment(Long boardId) {
-        if (!commentDTOList.isEmpty()) {
+    public List<CommentDTO> LookComment(Long boardId) {
+        List<CommentDTO> commentDTOS = new ArrayList<>();
             for (int i = 0; i < commentDTOList.size(); i++) {
                 if (boardId.equals(commentDTOList.get(i).getBoardId())) {
-                    System.out.println(commentDTOList.get(i));
+                    commentDTOS = commentDTOList;
+                    return commentDTOS;
                 }
             }
-        } else {
-            System.out.println("작성된 댓글이 없습니다.");
-        }
+        return commentDTOS;
     }
 
     public boolean boardComment(CommentDTO commentDTO) {
@@ -99,15 +97,14 @@ public class BoardRepository {
         }
     }
 
-    public boolean boardSearchCheck(String search) {
-        boolean result = false;
+    public List<BoardDTO> boardSearchCheck(String search) {
         for (int i = 0; i < boardDTOList.size(); i++) {
             if (boardDTOList.get(i).getBoardTitle().contains(search)) {
-                System.out.println("글 제목 : " + boardDTOList.get(i).getBoardTitle() + "  /  글 내용  : " + boardDTOList.get(i).getBoardContents());
-                result = true;
+               return boardDTOList;
+
             }
         }
-        return result;
+        return boardDTOList;
     }
 
 
