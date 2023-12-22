@@ -10,7 +10,6 @@ import java.util.List;
 
 public class BoardRepository {
     List<BoardDTO> boardDTOList = new ArrayList<>();
-    List<MemberDTO> memberDTOList = new ArrayList<>();
     List<CommentDTO> commentDTOList = new ArrayList<>();
 
     public boolean boardWriting(BoardDTO boardDTO) {
@@ -31,7 +30,6 @@ public class BoardRepository {
         }
         return boardDTOList;
     }
-
 
     public boolean ListOpen(Long boardId) {
         boolean result = false;
@@ -101,7 +99,6 @@ public class BoardRepository {
         for (int i = 0; i < boardDTOList.size(); i++) {
             if (boardDTOList.get(i).getBoardTitle().contains(search)) {
                return boardDTOList;
-
             }
         }
         return boardDTOList;

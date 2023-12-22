@@ -7,6 +7,7 @@ import ch12_classes.ex06.repository.MemberRepository;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.util.SplittableRandom;
 
@@ -43,6 +44,8 @@ public class MemberService {
                     System.out.println("중복된 이메일입니다. 다른 이메일을 적어주세요.");
                 }
             }
+        }else{
+            System.out.println("로그아웃 해주세요.");
         }
     }
 
@@ -67,9 +70,11 @@ public class MemberService {
     public void MemList() {
         if (CommonVariables.longinEmail != null) {
             System.out.println("회원 목록입니다.");
-            boolean memList = memberRepository.memList();
-            if (memList) {
-                System.out.println("회원목록입니다.");
+            List<MemberDTO> memList = memberRepository.memList();
+            if (!memList.isEmpty()) {
+                for (int i = 0; i < memList.size(); i++) {
+                    System.out.println(memList.get(i));
+                }
             } else {
                 System.out.println("오류로 인해서 회원목록 공개가 안됩니다.");
             }

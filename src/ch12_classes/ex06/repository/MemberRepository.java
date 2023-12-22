@@ -31,13 +31,12 @@ public class MemberRepository {
         }return null;
     }
 
-    public boolean memList() {
-        boolean result = false;
-        for (MemberDTO memberDTO : memberDTOList) {
-            System.out.println(memberDTO);
-            result = true;
+    public List<MemberDTO> memList() {
+        for (int i = 0; i < memberDTOList.size(); i++) {
+           return memberDTOList;
+
         }
-        return result;
+        return memberDTOList;
     }
 
 
