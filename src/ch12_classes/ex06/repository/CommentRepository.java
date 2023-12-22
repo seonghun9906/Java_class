@@ -22,5 +22,4 @@ public class CommentRepository {
         }
         return commentDTOS;
     }
-
 }
