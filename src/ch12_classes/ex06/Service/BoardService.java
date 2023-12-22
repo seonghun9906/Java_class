@@ -97,7 +97,7 @@ public class BoardService {
                         System.out.println("댓글작성에 실패하였습니다. ");
                     }
                 } else if (num == 2) {
-
+                    System.out.println("메인메뉴로 돌아가겠습니다.");
                 }
             } else {
                 System.out.println("해당하는 id가 존재하지 않습니다.");
