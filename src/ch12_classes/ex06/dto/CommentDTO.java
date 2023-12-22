@@ -5,7 +5,7 @@ import java.time.format.DateTimeFormatter;
 
 public class CommentDTO {
     public Long id;
-    public String boardId;
+    public Long boardId;
     public String commentWriter;
     public String commentContents;
     public String createdAt;
@@ -18,11 +18,11 @@ public class CommentDTO {
         this.id = id;
     }
 
-    public String getBoardId() {
+    public Long getBoardId() {
         return boardId;
     }
 
-    public void setBoardId(String boardId) {
+    public void setBoardId(Long boardId) {
         this.boardId = boardId;
     }
 
@@ -50,7 +50,7 @@ public class CommentDTO {
         this.createdAt = createdAt;
     }
     public static Long idValue = 1L;
-    public CommentDTO(String boardId, String commentWriter, String commentContents, String createtdAt) {
+    public CommentDTO(Long boardId, String commentWriter, String commentContents, String createtdAt) {
         this.id = idValue++;
         this.boardId = boardId;
         this.commentWriter = commentWriter;

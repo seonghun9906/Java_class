@@ -76,13 +76,13 @@ public class BoardDTO {
 
     @Override
     public String toString() {
-        return
-                id +
-                        boardTitle + '\'' +
-                        boardWriter + '\'' +
-                        boardContents + '\'' +
-                        boardHits +
-                        cratedAt + '\'';
-
+        return "BoardDTO{" +
+                "id=" + id +
+                ", boardTitle='" + boardTitle + '\'' +
+                ", boardWriter='" + boardWriter + '\'' +
+                ", boardContents='" + boardContents + '\'' +
+                ", boardHits=" + boardHits +
+                ", cratedAt='" + cratedAt + '\'' +
+                '}';
     }
 }

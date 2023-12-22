@@ -58,21 +58,25 @@ public class MainController {
                             boardService.boardWriting();
                         } else if (num == 2) {
                             boardService.boardList();
-                        } else if(num == 3){
+                        } else if (num == 3) {
                             boardService.WritingOpen();
-                        }else if(num == 4){
+                        } else if (num == 4) {
                             boardService.WritingEdit();
-                        }else if(num == 5){
-
-                        }else if(num == 0){
+                        } else if (num == 5) {
+                            boardService.boardReamove();
+                        } else if (num == 6) {
+                            boardService.boardSearch();
+                        } else if (num == 99) {
+                            boardService.boardSample();
+                        } else if (num == 0) {
                             System.out.println("메인메뉴로 돌아갑니다.");
                             run1 = false;
-                    }
+                        }
                     }
                 } else {
                     System.out.println("로그인 해주세요.");
                 }
-            }else if(num == 0){
+            } else if (num == 0) {
                 run = false;
             }
         }
