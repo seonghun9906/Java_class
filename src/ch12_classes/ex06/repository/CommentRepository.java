@@ -1,5 +1,6 @@
 package ch12_classes.ex06.repository;
 
+import ch12_classes.ex06.dto.BoardDTO;
 import ch12_classes.ex06.dto.CommentDTO;
 
 import java.util.ArrayList;
@@ -11,6 +12,9 @@ public class CommentRepository {
     public boolean boardComment(CommentDTO commentDTO) {
         return commentDTOList.add(commentDTO);
     }
+
+
+
 
     public List<CommentDTO> LookComment(Long boardId) {
         List<CommentDTO> commentDTOS = new ArrayList<>();

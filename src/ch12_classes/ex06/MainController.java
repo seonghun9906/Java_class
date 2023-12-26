@@ -39,7 +39,7 @@ public class MainController {
                 memberService.LogOut();
             } else if (num == 7) {
                 //CommonVariables.longinEmail 을 변수로 담으면 클래스에 저장이 안됨.
-                System.out.println(CommonVariables.longinEmail);
+                System.out.println(CommonVariables.longinEmail + "님 환영 합니다!! ");
                 if (CommonVariables.longinEmail != null) {
                     boolean run1 = true;
                     while (run1) {
@@ -67,6 +67,8 @@ public class MainController {
                         } else if (num == 0) {
                             System.out.println("메인메뉴로 돌아갑니다.");
                             run1 = false;
+                        }else {
+                            System.out.println("메뉴 안의 숫자를 입력해 주세요.");
                         }
                     }
                 } else {
@@ -74,6 +76,8 @@ public class MainController {
                 }
             } else if (num == 0) {
                 run = false;
+            }else{
+                System.out.println("메뉴 안의 숫자를 입력해주세요.");
             }
         }
     }

@@ -8,7 +8,6 @@ import ch12_classes.ex06.repository.BoardRepository;
 import ch12_classes.ex06.repository.CommentRepository;
 
 
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -62,48 +61,57 @@ public class BoardService {
         if (LoginCheck) {
             System.out.print("조회할 글의 id를 입력해 주세요 > ");
             Long boardId = sc.nextLong();
-            List<BoardDTO> open = boardRepository.ListOpen(boardId);
-            if (!open.isEmpty()) {
-                for (int i = 0; i < open.size() ; i++) {
-                    if (boardId.equals(open.get(i).getId())){
-                        System.out.println(open.get(i));
-                    }
-                }
-                System.out.println("========= 댓 글 =========");
-                List<CommentDTO> commentDTOS = commentRepository.LookComment(boardId);
-                if (!commentDTOS.isEmpty()) {
-                    for (int i = 0; i < commentDTOS.size(); i++) {
-                        if(boardId.equals(commentDTOS.get(i).getBoardId())) {
-                            System.out.println(commentDTOS.get(i));
+
+            boolean boardIdCheck = boardRepository.idCheck(boardId);
+            if (boardIdCheck) {
+
+                List<BoardDTO> open = boardRepository.ListOpen(boardId);
+                if (!open.isEmpty()) {
+                    for (int i = 0; i < open.size(); i++) {
+                        if (boardId.equals(open.get(i).getId())) {
+                            System.out.println(open.get(i));
                         }
                     }
-                } else {
-                    System.out.println("작성된 댓글이 없습니다.");
-                }
-                System.out.println("댓글을 작성하시려면 1번을 입력해주세요.");
-                System.out.println("메인메뉴로 돌아가려면 2번을 입력해주세요.");
-                System.out.print("입력 > ");
-                int num = sc.nextInt();
-                if (num == 1) {
-                    String writer = CommonVariables.longinEmail;
-                    System.out.print("댓글내용 : ");
-                    String commentWrite = sc.next();
-                    String commentWriteAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-                    CommentDTO commentDTO = new CommentDTO(boardId, writer, commentWrite, commentWriteAt);
-                    boolean comment = commentRepository.boardComment(commentDTO);
-                    if (comment) {
-                        System.out.println("댓글 작성이 완료되었습니다. ");
+                    System.out.println("========= 댓 글 =========");
+                    List<CommentDTO> commentDTOS = commentRepository.LookComment(boardId);
+                    if (!commentDTOS.isEmpty()) {
+                        for (int i = 0; i < commentDTOS.size(); i++) {
+                            if (boardId.equals(commentDTOS.get(i).getBoardId())) {
+                                System.out.println(commentDTOS.get(i));
+                            }
+                        }
                     } else {
-                        System.out.println("댓글작성에 실패하였습니다. ");
+                        System.out.println("작성된 댓글이 없습니다.");
                     }
-                } else if (num == 2) {
-                    System.out.println("메인메뉴로 돌아가겠습니다.");
+                    System.out.println("댓글을 작성하시려면 1번을 입력해주세요.");
+                    System.out.println("메인메뉴로 돌아가려면 2번을 입력해주세요.");
+                    System.out.print("입력 > ");
+                    int num = sc.nextInt();
+                    if (num == 1) {
+                        String writer = CommonVariables.longinEmail;
+                        System.out.print("댓글내용 : ");
+                        String commentWrite = sc.next();
+                        String commentWriteAt = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+                        CommentDTO commentDTO = new CommentDTO(boardId, writer, commentWrite, commentWriteAt);
+                        boolean comment = commentRepository.boardComment(commentDTO);
+                        if (comment) {
+                            System.out.println("댓글 작성이 완료되었습니다. ");
+                        } else {
+                            System.out.println("댓글 작성에 실패하였습니다.. ");
+                        }
+                    } else if (num == 2) {
+                        System.out.println("메인메뉴로 돌아가겠습니다.");
+                    }
                 }
-            } else {
-                System.out.println("해당하는 id가 존재하지 않습니다.");
+
+            }else {
+                System.out.println("해당하는 글의 게시물의 id 가 존재 하지 않습니다.");
             }
+        } else {
+            System.out.println("로그인을 해주시길 바랍니다.");
         }
     }
+
 
     public void WritingEdit() {
         boolean LoginCheck = boardRepository.LoginCheck(CommonVariables.longinEmail);
