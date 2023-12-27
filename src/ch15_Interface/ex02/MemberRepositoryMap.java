@@ -17,10 +17,10 @@ public class MemberRepositoryMap implements MemberRepository {
         }
     }
 
-    @Override
-    public boolean save(ch13_map.ex03.MemberDTO memberDTO) {
-        return false;
-    }
+//    @Override
+//    public boolean save(MemberDTO memberDTO) {
+//        return false;
+//    }
 
     @Override
     public MemberDTO login(String memberEmail, String memberPassword) {
